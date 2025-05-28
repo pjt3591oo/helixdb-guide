@@ -19,12 +19,52 @@ $ helix init --path [PATH]
 
 default port: 6969
 
-* run db
+* deploy
 
 ```sh
 $ helix deploy --path helixdb-cfg
 
-$ helix redeploy --path helixdb-cfg
+Successfully compiled 2 query files
+Successfully transpiled queries
+Successfully wrote queries file
+Successfully built Helix
+Successfully started Helix instance
+Instance ID: 6c7af21f-1fbc-47d6-ad71-43ba9816bf83 (running)
+└── Label: 
+└── Port: 6969
+└── Available endpoints:
+    └── /create_follow
+    └── /create_user
+    └── /get_posts
+    └── /get_users
+    └── /get_followed_users_posts
+    └── /get_followed_users
+    └── /create_post
+    └── /get_posts_by_user
+```
+
+* redeploy
+
+```sh
+$ helix redeploy --path helixdb-cfg 6c7af21f-1fbc-47d6-ad71-43ba9816bf83
+
+Helix instance found!
+Successfully compiled 2 query files
+Successfully wrote queries file
+Successfully built Helix
+Successfully started Helix instance
+Instance ID: 6c7af21f-1fbc-47d6-ad71-43ba9816bf83 (running)
+└── Label: 
+└── Port: 6969
+└── Available endpoints:
+    └── /get_posts_by_user
+    └── /get_followed_users_posts
+    └── /create_follow
+    └── /get_followed_users
+    └── /get_users
+    └── /create_user
+    └── /create_post
+    └── /get_posts
 ```
 
 * instance check
@@ -32,7 +72,7 @@ $ helix redeploy --path helixdb-cfg
 ```sh
 $ helix instances
 
-Instance ID: b98151bf-4a56-4328-a235-b6962d568c6a (running)
+Instance ID: 6c7af21f-1fbc-47d6-ad71-43ba9816bf83 (running)
 └── Label: 
 └── Port: 6969
 └── Available endpoints:
@@ -55,7 +95,7 @@ $ uv run main.py
 * delete db
 
 ```sh
-$ helix delete b98151bf-4a56-4328-a235-b6962d568c6a
+$ helix delete 6c7af21f-1fbc-47d6-ad71-43ba9816bf83
 ```
 
 ### sample RAG
@@ -67,15 +107,12 @@ default port: 6969
 ```sh
 $ helix deploy --path rag
 
-$ helix redeploy --path rag
-```
-
-* instance check
-
-```sh
-$ helix instances
-
-Instance ID: bef9e7a7-2ad2-476e-92a8-7a48a969f27a (running)
+Successfully compiled 2 query files
+Successfully transpiled queries
+Successfully wrote queries file
+Successfully built Helix
+Successfully started Helix instance
+Instance ID: 470f7297-04c3-4185-80ed-15cb859175f7 (running)
 └── Label: 
 └── Port: 6969
 └── Available endpoints:
@@ -86,14 +123,27 @@ Instance ID: bef9e7a7-2ad2-476e-92a8-7a48a969f27a (running)
 * redeploy
 
 ```sh
-$ helix redeploy --path rag  bef9e7a7-2ad2-476e-92a8-7a48a969f27a                                           ─╯
+$ helix redeploy --path rag  470f7297-04c3-4185-80ed-15cb859175f7
 
 Helix instance found!
 Successfully compiled 2 query files
 Successfully wrote queries file
 Successfully built Helix
 Successfully started Helix instance
-Instance ID: bef9e7a7-2ad2-476e-92a8-7a48a969f27a (running)
+Instance ID: 470f7297-04c3-4185-80ed-15cb859175f7 (running)
+└── Label: 
+└── Port: 6969
+└── Available endpoints:
+    └── /searchdocs_rag
+    └── /loaddocs_rag
+```
+
+* instance check
+
+```sh
+$ helix instances
+
+Instance ID: 470f7297-04c3-4185-80ed-15cb859175f7 (running)
 └── Label: 
 └── Port: 6969
 └── Available endpoints:
@@ -110,5 +160,5 @@ $ uv run rag_demo_ml_papers.py
 * delete db
 
 ```sh
-$ helix delete bef9e7a7-2ad2-476e-92a8-7a48a969f27a
+$ helix delete 470f7297-04c3-4185-80ed-15cb859175f7
 ```
