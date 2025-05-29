@@ -195,9 +195,9 @@ if __name__ == "__main__":
     user_prompt = "what is ownership in rust and how does it relate to lifetimes"
     query_embedding = vectorize_text(user_prompt)
     
-    res1 = db.query(SearchdocsRag(query_embedding))[0]['subchapters']
+    contexts = db.query(SearchdocsRag(query_embedding))[0]['subchapters']
     
-    for i in res1:
+    for i in contexts:
         print(i)
         print()
         print()
@@ -205,4 +205,20 @@ if __name__ == "__main__":
         print()
         print()
         print('-' * 80)
-    print(len(res1))
+    print(len(contexts))
+
+    prompts = f"""
+    You are a helpful assistant that can answer questions about the following context:
+    
+    context:
+    {contexts}
+
+    question: {user_prompt}
+
+    answer:
+    """
+
+    print(prompts)
+
+    # llm call
+    # llm.invoke(prompts)

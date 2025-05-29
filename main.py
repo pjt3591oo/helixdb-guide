@@ -1,6 +1,5 @@
 from typing import Tuple
-from helix import Client, Loader, Query
-from helix.client import hnswinsert, hnswload, hnswsearch
+from helix import Client, Query
 
 
 class CreateUser(Query):
