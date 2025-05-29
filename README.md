@@ -9,7 +9,7 @@ $ helix install
 ```
 
 ```sh
-# generate config.hx.json, queries.hx, schema.hx on helixdb-cfg
+# generate config.hx.json, queries.hx, schema.hx on [PATH]
 $ helix init --path [PATH]
 ```
 
@@ -22,7 +22,7 @@ default port: 6969
 * deploy
 
 ```sh
-$ helix deploy --path helixdb-cfg
+$ helix deploy --path hello-world
 
 Successfully compiled 2 query files
 Successfully transpiled queries
@@ -46,7 +46,7 @@ Instance ID: 6c7af21f-1fbc-47d6-ad71-43ba9816bf83 (running)
 * redeploy
 
 ```sh
-$ helix redeploy --path helixdb-cfg 6c7af21f-1fbc-47d6-ad71-43ba9816bf83
+$ helix redeploy --path hello-world 6c7af21f-1fbc-47d6-ad71-43ba9816bf83
 
 Helix instance found!
 Successfully compiled 2 query files
